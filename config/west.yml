@@ -29,6 +29,19 @@ manifest:
       # Last pre-v4 revision, compatible with the v0.3-based firmware above.
       revision: dbf92f764de8b6ffd60bf5850514302875fe2570
       path: modules/zmk-module-runtime-input-processor
+    - name: zmk-module-ble-management
+      remote: cormoran
+      # Last pre-v4 revision.
+      revision: 851661cd21f2aded8ec649da86e01a207dc4b973
+      path: modules/zmk-module-ble-management
+    - name: zmk-module-battery-history
+      remote: cormoran
+      revision: 307755dd2ad4d320e14de162e8e5ef018f29d929
+      path: modules/zmk-module-battery-history
+    - name: zmk-behavior-runtime-sensor-rotate
+      remote: cormoran
+      revision: 3bbd99204671d6a7d539960389a4535f333c3c22
+      path: modules/zmk-behavior-runtime-sensor-rotate
 
   self:
     path: config
