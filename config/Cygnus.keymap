@@ -12,7 +12,16 @@
 
 &mt {
     flavor = "balanced";
+    tapping-term-ms = <200>;
     quick-tap-ms = <0>;
+    require-prior-idle-ms = <0>;
+};
+
+&lt {
+    flavor = "balanced";
+    tapping-term-ms = <200>;
+    quick-tap-ms = <0>;
+    require-prior-idle-ms = <0>;
 };
 
 / {
@@ -41,7 +50,10 @@
             bindings = <&mo>, <&to_layer_0>;
 
             #binding-cells = <2>;
+            flavor = "balanced";
             tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            require-prior-idle-ms = <0>;
         };
 
         ROTATE: ROTATE {
