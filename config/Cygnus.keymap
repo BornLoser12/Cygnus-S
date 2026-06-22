@@ -44,6 +44,58 @@
     };
 
     behaviors {
+        lt_fast: lt_fast {
+            compatible = "zmk,behavior-hold-tap";
+            display-name = "Layer-Tap Fast (170ms)";
+            bindings = <&mo>, <&kp>;
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <170>;
+            quick-tap-ms = <0>;
+            require-prior-idle-ms = <0>;
+        };
+
+        lt_safe: lt_safe {
+            compatible = "zmk,behavior-hold-tap";
+            display-name = "Layer-Tap Safe (220ms)";
+            bindings = <&mo>, <&kp>;
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <220>;
+            quick-tap-ms = <0>;
+            require-prior-idle-ms = <0>;
+        };
+
+        mt_safe: mt_safe {
+            compatible = "zmk,behavior-hold-tap";
+            display-name = "Mod-Tap Safe (250ms)";
+            bindings = <&kp>, <&kp>;
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <250>;
+            quick-tap-ms = <0>;
+            require-prior-idle-ms = <0>;
+        };
+
+        mt_mouse: mt_mouse {
+            compatible = "zmk,behavior-hold-tap";
+            display-name = "Mod-Tap Mouse (180ms)";
+            bindings = <&kp>, <&kp>;
+            #binding-cells = <2>;
+            flavor = "balanced";
+            tapping-term-ms = <180>;
+            quick-tap-ms = <0>;
+            require-prior-idle-ms = <0>;
+            hold-while-undecided;
+        };
+
+        amka: amka {
+            compatible = "zmk,behavior-input-processor-temp-layer-keep-active";
+            display-name = "Keep Auto-Mouse Layer";
+            processor-name = "cursor";
+            #binding-cells = <0>;
+        };
+
         lt_to_layer_0: lt_to_layer_0 {
             compatible = "zmk,behavior-hold-tap";
             label = "LAYER_TAP_TO_0";
