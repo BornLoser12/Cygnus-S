@@ -37,36 +37,21 @@
             bindings = <&mkp LCLK>;
             key-positions = <18 19>;
             layers = <0 MOUSE>;
+            timeout-ms = <25>;
         };
 
         combo_kl_right_click {
             bindings = <&mkp RCLK>;
             key-positions = <19 20>;
             layers = <0 MOUSE>;
+            timeout-ms = <25>;
         };
 
         combo_jl_middle_click {
             bindings = <&mkp MCLK>;
             key-positions = <18 20>;
             layers = <0 MOUSE>;
-        };
-
-        combo_ui_page_up {
-            bindings = <&kp PAGE_UP>;
-            key-positions = <6 7>;
-            layers = <0 MOUSE>;
-        };
-
-        combo_io_page_down {
-            bindings = <&kp PAGE_DOWN>;
-            key-positions = <7 8>;
-            layers = <0 MOUSE>;
-        };
-
-        combo_uo_close_tab {
-            bindings = <&kp LC(W)>;
-            key-positions = <6 8>;
-            layers = <0 MOUSE>;
+            timeout-ms = <25>;
         };
     };
 
@@ -166,10 +151,49 @@
 
         default_layer {
             bindings = <
-&kp Q             &kp W         &kp E         &kp R             &kp T                                                &kp Y        &kp U  &kp I      &kp O    &kp P
-&kp A             &kp S         &kp D         &kp F             &kp G        &mkp RCLK               &kp UP_ARROW    &kp H        &kp J  &kp K      &lt 4 L  &lt 5 MINUS
-&mt LEFT_SHIFT Z  &kp X         &kp C         &kp V             &kp B        &mkp LCLK               &kp DOWN_ARROW  &kp N        &kp M  &kp COMMA  &kp DOT  &mt LEFT_SHIFT SLASH
-&kp LCTRL         &kp LEFT_WIN  &kp LEFT_ALT  &lt 6 INT_HENKAN  &lt 1 SPACE  &lt 3 INT_MUHENKAN      &kp BACKSPACE   &lt 2 ENTER                             &kp DEL
+                &kp Q
+                &kp W
+                &kp E
+                &kp R
+                &kp T
+                &kp Y
+                &kp U
+                &kp I
+                &kp O
+                &kp P
+                &kp A
+                &kp S
+                &kp D
+                &kp F
+                &kp G
+                &kp LG(LS(S))
+                &kp LCTL
+                &kp H
+                &kp J
+                &kp K
+                &lt 4 L
+                &lt 5 MINUS
+                &mt LSHFT Z
+                &kp X
+                &kp C
+                &kp V
+                &kp B
+                &kp ESC
+                &kp TAB
+                &kp N
+                &kp M
+                &kp COMMA
+                &kp DOT
+                &mt LSHFT FSLH
+                &kp ESC
+                &kp LGUI
+                &kp LALT
+                &kp BSPC
+                &lt 1 458891
+                &mt LCTL SPACE
+                &lt 2 RET
+                &lt 3 458890
+                &kp TAB
             >;
 
             sensor-bindings = <&ROTATE>;
@@ -177,10 +201,49 @@
 
         FUNCTION {
             bindings = <
-&kp F1   &kp F2  &kp F3  &kp F4  &kp F5                        &kp F1  &kp F2  &kp F3  &kp F4  &kp F5
-&kp F6   &kp F7  &kp F8  &kp F9  &kp F10  &trans      &kp F13  &kp F6  &kp F7  &kp F8  &kp F9  &kp F10
-&kp F11  &trans  &trans  &trans  &trans   &trans      &trans   &trans  &trans  &trans  &trans  &kp F11
-&kp F12  &trans  &trans  &trans  &trans   &trans      &trans   &trans                          &kp F12
+                &none
+                &kp F10
+                &kp F7
+                &kp F8
+                &kp F9
+                &kp KP_N7
+                &kp KP_N8
+                &kp KP_N9
+                &kp KP_DOT
+                &kp 458885
+                &none
+                &kp F11
+                &kp F4
+                &kp F5
+                &kp F6
+                &trans
+                &kp KP_PLUS
+                &kp KP_N4
+                &kp KP_N5
+                &kp KP_N6
+                &kp KP_MINUS
+                &kp RCTL
+                &kp LSHFT
+                &kp F12
+                &kp F1
+                &kp F2
+                &kp F3
+                &kp LC(SPACE)
+                &kp KP_ASTERISK
+                &kp KP_N1
+                &kp KP_N2
+                &kp KP_N3
+                &kp KP_SLASH
+                &kp RSHFT
+                &trans
+                &trans
+                &trans
+                &kp DEL
+                &trans
+                &trans
+                &kp KP_DOT
+                &kp KP_N0
+                &kp COMMA
             >;
 
             sensor-bindings = <&ROTATE>;
@@ -188,10 +251,49 @@
 
         NUM {
             bindings = <
-&kp MINUS                   &kp KP_NUMBER_7  &kp KP_NUMBER_8  &kp KP_NUMBER_9  &kp PLUS                                     &kp CARET         &kp AMPERSAND      &kp TILDE       &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
-&kp SLASH                   &kp KP_NUMBER_4  &kp KP_NUMBER_5  &kp KP_NUMBER_6  &kp ASTERISK  &trans         &kp UNDERSCORE  &kp EXCLAMATION   &kp AT_SIGN        &kp HASH        &kp DOLLAR            &kp PERCENT
-&mt LEFT_SHIFT KP_NUMBER_0  &kp KP_NUMBER_1  &kp KP_NUMBER_2  &kp KP_NUMBER_3  &kp PERIOD    &kp EQUAL      &trans          &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp LEFT_BRACE  &kp RIGHT_BRACE       &kp BACKSLASH
-&trans                      &trans           &trans           &trans           &trans        &trans         &trans          &trans                                                                     &kp PIPE
+                &kp LS(N1)
+                &kp LS(N2)
+                &kp LS(N3)
+                &kp LS(N4)
+                &kp LS(N5)
+                &kp LS(N6)
+                &kp LS(N7)
+                &kp LS(N8)
+                &kp LS(N9)
+                &kp LS(EQUAL)
+                &kp LC(N1)
+                &kp LC(N2)
+                &kp LC(N3)
+                &kp LC(N4)
+                &kp LS(LC(N5))
+                &trans
+                &trans
+                &kp SEMI
+                &kp SQT
+                &kp RBKT
+                &kp NUHS
+                &kp LBKT
+                &mt LSHFT KP_N0
+                &kp LA(N2)
+                &kp LA(N3)
+                &kp LA(N4)
+                &kp LA(N5)
+                &trans
+                &trans
+                &kp 34013321
+                &kp EQUAL
+                &kp LS(RBKT)
+                &kp LS(NUHS)
+                &mt RSHFT 34013319
+                &kp LG(N1)
+                &kp LG(N2)
+                &kp LG(N3)
+                &kp DEL
+                &trans
+                &trans
+                &trans
+                &trans
+                &kp 458887
             >;
 
             sensor-bindings = <&ROTATE>;
@@ -199,10 +301,49 @@
 
         ARROW {
             bindings = <
-&kp ESCAPE      &kp LC(LS(TAB))         &kp UP_ARROW    &kp LC(TAB)              &trans                       &trans  &trans  &trans  &trans  &trans
-&kp HOME        &kp LEFT_ARROW          &kp DOWN_ARROW  &kp RIGHT_ARROW          &kp END  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&kp LEFT_SHIFT  &kp LG(LS(LEFT_ARROW))  &trans          &kp LG(LS(RIGHT_ARROW))  &trans   &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans          &trans                  &trans          &trans                   &trans   &trans      &trans  &trans                          &trans
+                &bt BT_SEL 0
+                &bt BT_SEL 1
+                &bt BT_SEL 2
+                &none
+                &none
+                &kp PGUP
+                &kp HOME
+                &kp UP
+                &kp END
+                &trans
+                &none
+                &none
+                &none
+                &none
+                &none
+                &trans
+                &trans
+                &kp PGDN
+                &kp LEFT
+                &kp DOWN
+                &kp RIGHT
+                &trans
+                &none
+                &none
+                &none
+                &none
+                &none
+                &bt BT_CLR_ALL
+                &trans
+                &kp LG(TAB)
+                &kp LG(LC(LEFT))
+                &kp LA(DOWN)
+                &kp LG(LC(RIGHT))
+                &trans
+                &trans
+                &trans
+                &trans
+                &kp DEL
+                &kp LSHFT
+                &trans
+                &trans
+                &trans
+                &trans
             >;
 
             sensor-bindings = <&ROTATE_ARROW>;
@@ -210,10 +351,49 @@
 
         MOUSE {
             bindings = <
-&trans       &trans       &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &kp LC(W)                         &kp LC(W)  &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &trans       &trans
-&lt 5 SPACE  &lt 4 SPACE  &mkp LCLK        &mkp RCLK          &mkp MCLK  &trans         &trans  &mkp MCLK  &mkp LCLK        &mkp RCLK          &lt 4 SPACE  &lt 5 SPACE
-&trans       &trans       &trans           &trans             &trans     &mkp RCLK      &trans  &trans     &mkp MB4         &mkp MB5           &trans       &trans
-&trans       &trans       &trans           &trans             &trans     &trans         &trans  &trans                                                      &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &kp LC(W)
+                &kp LC(PGUP)
+                &trans
+                &kp LC(PGDN)
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &mkp MCLK
+                &mkp LCLK
+                &mkp RCLK
+                &lt 4 SPACE
+                &lt 5 SPACE
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &kp BSPC
+                &mkp MB4
+                &trans
+                &mkp MB5
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
             >;
 
             sensor-bindings = <&ROTATE>;
@@ -221,10 +401,49 @@
 
         SCROLL {
             bindings = <
-&trans  &trans  &trans  &trans  &trans                      &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&none   &trans  &trans  &trans  &trans  &trans      &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans      &trans  &trans                          &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &none
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
             >;
 
             sensor-bindings = <&ROTATE>;
@@ -232,10 +451,49 @@
 
         layer_6 {
             bindings = <
-&trans  &trans        &trans        &trans        &trans                                 &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4
-&trans  &trans        &trans        &trans        &trans     &trans      &studio_unlock  &trans        &trans        &trans        &trans        &trans
-&trans  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kt KP_N4  &trans      &bootloader     &trans        &trans        &trans        &trans        &bt BT_CLR
-&trans  &trans        &trans        &trans        &trans     &trans      &trans          &trans                                                  &bt BT_CLR_ALL
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &bt BT_SEL 0
+                &bt BT_SEL 1
+                &bt BT_SEL 2
+                &bt BT_SEL 3
+                &bt BT_SEL 4
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &studio_unlock
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &kp N1
+                &kp N2
+                &kp N3
+                &kt KP_N4
+                &trans
+                &bootloader
+                &trans
+                &trans
+                &trans
+                &trans
+                &bt BT_CLR
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &bt BT_CLR_ALL
             >;
 
             sensor-bindings = <&ROTATE>;
