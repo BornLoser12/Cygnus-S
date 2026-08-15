@@ -42,6 +42,34 @@ manifest:
       remote: cormoran
       revision: 3bbd99204671d6a7d539960389a4535f333c3c22
       path: modules/zmk-behavior-runtime-sensor-rotate
+    - name: zmk-feature-custom-settings
+      remote: cormoran
+      revision: c6a7fef3a3be3d3ace5de9a4b0628c6418cd1f3f
+      path: modules/zmk-feature-custom-settings
+    - name: zmk-feature-runtime-combo
+      remote: cormoran
+      revision: d9490e7b5d41c516221d131241009e81740efcee
+      path: modules/zmk-feature-runtime-combo
+    - name: zmk-feature-runtime-macro
+      remote: cormoran
+      revision: 38530962eb7061b60efcb98e84585cfb1f0cb6de
+      path: modules/zmk-feature-runtime-macro
+    - name: zmk-feature-input-stream
+      remote: cormoran
+      revision: aeb015908a42a7615ccdccc7feb3a10d23132a71
+      path: modules/zmk-feature-input-stream
+    - name: zmk-module-settings-rpc
+      remote: cormoran
+      revision: 78f86df9e6c5edaf57bef3ccbd7f360cfdf49291
+      path: modules/zmk-module-settings-rpc
+    - name: zmk-feature-os-detection
+      remote: cormoran
+      revision: 3052679f645b8fc1997275c2eaa6b86bdd55ca01
+      path: modules/zmk-feature-os-detection
+    - name: zmk-feature-default-layer
+      remote: cormoran
+      revision: b25cb5b324da2d9bbc84e1877c775f5b2b7c6845
+      path: modules/zmk-feature-default-layer
 
   self:
     path: config
