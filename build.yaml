@@ -18,14 +18,10 @@
 #
 ---
 include:
- - artifact: Cygnus_R
-   board: xiao_ble//zmk
+ - board: xiao_ble//zmk
    shield: Cygnus_R rgbled_adapter
-   snippets:
-     - studio-rpc-usb-uart
- - artifact: Cygnus_L
-   board: xiao_ble//zmk
+   snippet: studio-rpc-usb-uart
+ - board: xiao_ble//zmk
    shield: Cygnus_L rgbled_adapter
- - artifact: settings_reset
-   board: xiao_ble//zmk
+ - board: xiao_ble//zmk
    shield: settings_reset
