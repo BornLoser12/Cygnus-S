@@ -53,6 +53,27 @@
             layers = <0 MOUSE>;
             timeout-ms = <25>;
         };
+
+        combo_ui_ctrl_page_up {
+            bindings = <&kp LC(PAGE_UP)>;
+            key-positions = <6 7>;
+            layers = <0 MOUSE>;
+            timeout-ms = <25>;
+        };
+
+        combo_io_ctrl_page_down {
+            bindings = <&kp LC(PAGE_DOWN)>;
+            key-positions = <7 8>;
+            layers = <0 MOUSE>;
+            timeout-ms = <25>;
+        };
+
+        combo_uo_ctrl_w {
+            bindings = <&kp LC(W)>;
+            key-positions = <6 8>;
+            layers = <0 MOUSE>;
+            timeout-ms = <25>;
+        };
     };
 
     macros {
