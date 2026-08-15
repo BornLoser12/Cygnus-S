@@ -74,6 +74,20 @@
             layers = <0 MOUSE>;
             timeout-ms = <25>;
         };
+
+        combo_m_comma_mouse_back {
+            bindings = <&mkp MB4>;
+            key-positions = <30 31>;
+            layers = <0 MOUSE>;
+            timeout-ms = <25>;
+        };
+
+        combo_comma_dot_mouse_forward {
+            bindings = <&mkp MB5>;
+            key-positions = <31 32>;
+            layers = <0 MOUSE>;
+            timeout-ms = <25>;
+        };
     };
 
     macros {
