@@ -1,5 +1,6 @@
 #include "Cygnus.dtsi"
-#include <zephyr/dt-bindings/input/input-event-codes.h>
+#include <dt-bindings/input/input-event-codes.h>
+#include <dt-bindings/zmk/keys.h>
 #include <input/processors.dtsi>
 #include <input/processors/runtime-input-processor.dtsi>
 
@@ -27,20 +28,34 @@
 
 &mouse_runtime_input_processor {
     processor-label = "cursor";
+    type = <INPUT_EV_REL>;
+    x-codes = <INPUT_REL_X>;
+    y-codes = <INPUT_REL_Y>;
+    track-remainders;
 
     /* Preserve the existing auto-mouse behavior while making it editable. */
     temp-layer-enabled;
     temp-layer = <4>;
     temp-layer-activation-delay-ms = <0>;
     temp-layer-deactivation-delay-ms = <700>;
+    temp-layer-transparent-behavior = <&trans>;
+    temp-layer-kp-behavior = <&kp>;
+    temp-layer-keep-keycodes = <LEFT_CONTROL LEFT_SHIFT LEFT_ALT LEFT_GUI RIGHT_CONTROL RIGHT_SHIFT RIGHT_ALT RIGHT_GUI>;
 };
 
 &scroll_runtime_input_processor {
     processor-label = "scroll";
+    type = <INPUT_EV_REL>;
 
-    /* The PMW3610 driver already emits one wheel tick at a time. */
+    /* The current PMW3610 driver emits REL_X/REL_Y; convert those to scroll. */
+    x-codes = <INPUT_REL_X>;
+    y-codes = <INPUT_REL_Y>;
+    xy-to-scroll-enabled;
+    track-remainders;
     scale-multiplier = <1>;
-    scale-divisor = <1>;
+    scale-divisor = <60>;
+    axis-snap-mode = <AXIS_SNAP_MODE_Y>;
+    axis-snap-threshold = <200>;
 };
 
 &pinctrl {
@@ -74,11 +89,14 @@
 
     trackball: trackball@0 {
         status = "okay";
-        compatible = "pixart,pmw3610";
+        compatible = "cormoran,pmw3610";
         reg = <0>;
         spi-max-frequency = <2000000>;
         irq-gpios = <&gpio0 2 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>;
-        scroll-layers = <5>;
+        evt-type = <INPUT_EV_REL>;
+        x-input-code = <INPUT_REL_X>;
+        y-input-code = <INPUT_REL_Y>;
+        cpi = <1000>;
+        settings-id = "trackball";
     };
 };
-
