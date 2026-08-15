@@ -3,9 +3,6 @@ id: Cygnus
 name: Cygnus
 type: shield
 url: https://github.com/Dist16384/Cygnus-S.git
-requires: [seeed_xiao]
+requires: [seeeduino_xiao_ble]
 features:
   - keys
-siblings:
-  - Cygnus_L
-  - Cygnus_R
