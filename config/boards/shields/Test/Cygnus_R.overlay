@@ -32,6 +32,7 @@
     type = <INPUT_EV_REL>;
     x-codes = <INPUT_REL_X>;
     y-codes = <INPUT_REL_Y>;
+    active-layers = <0>;
     track-remainders;
 
     /* Preserve the existing auto-mouse behavior while making it editable. */
@@ -55,6 +56,11 @@
     track-remainders;
     scale-multiplier = <1>;
     scale-divisor = <60>;
+    /* Only turn trackball XY into wheel events while the SCROLL layer is active.
+     * Keeping this processor active on every layer turns normal cursor movement
+     * into scroll output before it reaches HID.
+     */
+    active-layers = <32>;
     axis-snap-mode = <AXIS_SNAP_MODE_Y>;
     axis-snap-threshold = <200>;
 };
