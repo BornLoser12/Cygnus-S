@@ -54,27 +54,6 @@
             timeout-ms = <25>;
         };
 
-        combo_ui_ctrl_page_up {
-            bindings = <&kp LC(PAGE_UP)>;
-            key-positions = <6 7>;
-            layers = <0 MOUSE>;
-            timeout-ms = <25>;
-        };
-
-        combo_io_ctrl_page_down {
-            bindings = <&kp LC(PAGE_DOWN)>;
-            key-positions = <7 8>;
-            layers = <0 MOUSE>;
-            timeout-ms = <25>;
-        };
-
-        combo_uo_ctrl_w {
-            bindings = <&kp LC(W)>;
-            key-positions = <6 8>;
-            layers = <0 MOUSE>;
-            timeout-ms = <25>;
-        };
-
         combo_m_comma_mouse_back {
             bindings = <&mkp MB4>;
             key-positions = <30 31>;
@@ -85,6 +64,13 @@
         combo_comma_dot_mouse_forward {
             bindings = <&mkp MB5>;
             key-positions = <31 32>;
+            layers = <0 MOUSE>;
+            timeout-ms = <25>;
+        };
+
+        combo_m_dot_ctrl_w {
+            bindings = <&kp LC(W)>;
+            key-positions = <30 32>;
             layers = <0 MOUSE>;
             timeout-ms = <25>;
         };
