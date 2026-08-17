@@ -44,13 +44,19 @@ jobs:
         shell: bash
         run: |
           errors="$(mktemp)"
+          tail_log="$(mktemp)"
+          pattern='(^|[ :])(error:|FAILED:|undefined reference|ld\.bfd:|collect2:|ninja: build stopped|CMake Error|devicetree error|warning:.*was assigned|FATAL ERROR|Traceback|Exception)'
           if [ -f build-all.log ]; then
-            grep -H -n -Ei 'error|failed|fatal|undefined reference|devicetree|CMake Error|Kconfig|traceback|exception' build-all.log > "$errors" || true
+            grep -H -n -Ei "$pattern" build-all.log > "$errors" || true
+            tail -n 160 build-all.log > "$tail_log" || true
           fi
           find ./build -type f -name stdout_and_stderr.log \
-          -exec grep -H -n -Ei 'error|failed|fatal|undefined reference|devicetree|CMake Error|Kconfig|traceback|exception' {} \; >> "$errors" || true
-          head -200 "$errors" | while IFS= read -r line; do
+          -exec grep -H -n -Ei "$pattern" {} \; >> "$errors" || true
+          head -120 "$errors" | while IFS= read -r line; do
             echo "::error title=Build error excerpt::$line"
+          done
+          tail -80 "$tail_log" | while IFS= read -r line; do
+            echo "::error title=Build log tail::$line"
           done
           {
             echo "## Build error excerpts"
@@ -58,8 +64,15 @@ jobs:
             echo '```'
             cat "$errors"
             echo '```'
+            echo
+            echo "## Build log tail"
+            echo
+            echo '```'
+            cat "$tail_log"
+            echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
           cat "$errors"
+          cat "$tail_log"
 
       - name: Archive build logs
         if: failure()
