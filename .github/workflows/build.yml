@@ -17,20 +17,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Cache west modules
-        uses: actions/cache@v4
-        continue-on-error: true
-        env:
-          cache_name: cache-west-modules
-        with:
-          path: dependencies/
-          key: ${{ runner.os }}-build-${{ env.cache_name }}-${{ hashFiles('config/west*.yml', 'build.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache_name }}-
-
       - name: Init
         run: |
           git config --global --add safe.directory ${{ github.workspace }}
+          rm -rf .west dependencies
           make init-standalone
 
       - name: Build
