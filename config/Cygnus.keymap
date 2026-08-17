@@ -27,15 +27,19 @@
 };
 
 / {
-    combos {
-        compatible = "zmk,combos";
+    runtime_combo_defaults {
+        compatible = "cormoran,runtime-combo-defaults";
 
         double_quotation {
+            slot = <0>;
+            display-name = "Double quote";
             bindings = <&kp DOUBLE_QUOTES>;
             key-positions = <20 21>;
         };
 
         combo_jk_left_click {
+            slot = <1>;
+            display-name = "JK left click";
             bindings = <&mkp LCLK>;
             key-positions = <18 19>;
             layers = <0 MOUSE>;
@@ -43,6 +47,8 @@
         };
 
         combo_kl_right_click {
+            slot = <2>;
+            display-name = "KL right click";
             bindings = <&mkp RCLK>;
             key-positions = <19 20>;
             layers = <0 MOUSE>;
@@ -50,6 +56,8 @@
         };
 
         combo_jl_middle_click {
+            slot = <3>;
+            display-name = "JL middle click";
             bindings = <&mkp MCLK>;
             key-positions = <18 20>;
             layers = <0 MOUSE>;
@@ -57,6 +65,8 @@
         };
 
         combo_m_comma_mouse_back {
+            slot = <4>;
+            display-name = "M comma back";
             bindings = <&mkp MB4>;
             key-positions = <30 31>;
             layers = <0 MOUSE>;
@@ -64,6 +74,8 @@
         };
 
         combo_comma_dot_mouse_forward {
+            slot = <5>;
+            display-name = "Comma dot forward";
             bindings = <&mkp MB5>;
             key-positions = <31 32>;
             layers = <0 MOUSE>;
@@ -71,6 +83,8 @@
         };
 
         combo_m_dot_ctrl_w {
+            slot = <6>;
+            display-name = "M dot close tab";
             bindings = <&kp LC(W)>;
             key-positions = <30 32>;
             layers = <0 MOUSE>;
