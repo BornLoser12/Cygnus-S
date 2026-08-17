@@ -39,16 +39,23 @@ jobs:
       - name: Print build errors
         if: failure()
         run: |
+          errors="$(mktemp)"
+          find ./build -type f -name stdout_and_stderr.log \
+          -exec grep -H -n -Ei 'error|failed|fatal|undefined reference|devicetree|CMake Error|Kconfig' {} \; > "$errors" || true
+          head -200 "$errors" | while IFS= read -r line; do
+            line="${line//'%'/'%25'}"
+            line="${line//$'\n'/'%0A'}"
+            line="${line//$'\r'/'%0D'}"
+            echo "::error title=Build error excerpt::$line"
+          done
           {
             echo "## Build error excerpts"
             echo
             echo '```'
-            find ./build -type f -name stdout_and_stderr.log \
-            -exec sh -c 'for f do echo "### $f"; grep -H -n -Ei "error|failed|fatal|undefined reference|devicetree|CMake Error|Kconfig" "$f" | head -200 || true; done' sh {} \;
+            cat "$errors"
             echo '```'
           } >> "$GITHUB_STEP_SUMMARY"
-          find ./build -type f -name stdout_and_stderr.log \
-          -exec grep -H -n -Ei 'error|failed|fatal|undefined reference|devicetree|CMake Error|Kconfig' {} \; || true
+          cat "$errors"
 
       - name: Archive build logs
         if: failure()
