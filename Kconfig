@@ -1,0 +1,6 @@
+config CYGNUS_BEHAVIOR_QUEUE_COMPAT
+    bool "Cygnus behavior queue compatibility shim"
+    default y
+    help
+      Provides a weak zmk_behavior_queue_add() implementation for DYA runtime
+      sensor rotate builds when the selected ZMK base does not export it.

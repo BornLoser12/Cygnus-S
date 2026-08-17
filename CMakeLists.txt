@@ -1,0 +1,1 @@
+target_sources_ifdef(CONFIG_CYGNUS_BEHAVIOR_QUEUE_COMPAT app PRIVATE src/behavior_queue_compat.c)
