@@ -18,10 +18,21 @@
 #
 ---
 include:
- - board: seeeduino_xiao_ble
+ - artifact: Cygnus_R
+   board: xiao_ble//zmk
    shield: Cygnus_R rgbled_adapter
-   snippet: studio-rpc-usb-uart
- - board: seeeduino_xiao_ble
+   snippets:
+     - studio-rpc-usb-uart
+ - artifact: Cygnus_L
+   board: xiao_ble//zmk
    shield: Cygnus_L rgbled_adapter
- - board: seeeduino_xiao_ble
-   shield: settings_reset
+ - artifact: Cygnus_R_reset
+   board: xiao_ble//zmk
+   shield: Cygnus_R rgbled_adapter
+   snippets:
+     - studio-rpc-usb-uart
+   cmake-args: -DCONFIG_ZMK_SETTINGS_RESET_ON_START=y
+ - artifact: Cygnus_L_reset
+   board: xiao_ble//zmk
+   shield: Cygnus_L rgbled_adapter
+   cmake-args: -DCONFIG_ZMK_SETTINGS_RESET_ON_START=y

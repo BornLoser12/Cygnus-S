@@ -111,4 +111,31 @@
         sensors = <&left_encoder>;
         triggers-per-rotation = <10>;
     };
+
+    right_trackball_layout: right_trackball_layout {
+        compatible = "cormoran,physical-layout-trackball";
+        display-name = "Right Trackball";
+        size = <150>;
+        x = <1125>;
+        y = <425>;
+        linked-device-identifiers = "cursor", "scroll";
+        linked-subsystems = "cormoran_rip", "cormoran_rip";
+    };
+
+    rotary_encoders_layout: rotary_encoders_layout {
+        compatible = "cormoran,physical-layout-rotary-encoders";
+        display-name = "Rotary Encoder";
+        encoders = <&left_encoder_layout>;
+    };
+
+    left_encoder_layout: left_encoder_layout {
+        compatible = "cormoran,physical-layout-rotary-encoder";
+        size = <100>;
+        x = <0>;
+        y = <400>;
+    };
+};
+
+&board_cdc_acm_uart {
+    status = "disabled";
 };

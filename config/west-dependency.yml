@@ -1,0 +1,73 @@
+manifest:
+  version: 1.2
+  defaults:
+    remote: cormoran
+    revision: main
+  remotes:
+    - name: cormoran
+      url-base: https://github.com/cormoran
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: caksoylar
+      url-base: https://github.com/caksoylar
+  projects:
+    - name: zmk-west-commands
+      import: true
+    - name: zmk
+      revision: main+dya
+      clone-depth: 1
+      import:
+        file: app/west.yml
+    - name: zephyr
+      revision: v4.1.0+zmk-fixes+nrf-half-duplex-uart
+      clone-depth: 1
+      import:
+        name-blocklist:
+          - ci-tools
+          - hal_altera
+          - hal_cypress
+          - hal_infineon
+          - hal_microchip
+          - hal_nxp
+          - hal_openisa
+          - hal_silabs
+          - hal_xtensa
+          - hal_st
+          - hal_ti
+          - loramac-node
+          - mcuboot
+          - mcumgr
+          - net-tools
+          - openthread
+          - edtt
+          - trusted-firmware-m
+    - name: zmk-rgbled-widget
+      remote: caksoylar
+      revision: main
+    - name: zmk-driver-pmw3610-with-custom-studio-rpc
+    - name: zmk-feature-os-detection
+    - name: zmk-feature-default-layer
+      revision: codex/custom-rpc-rewrite
+      import: true
+    - name: zmk-driver-animation
+    - name: zmk-driver-ext-power-transient
+    - name: zmk-module-ble-management
+    - name: zmk-module-battery-history
+    - name: zmk-module-runtime-input-processor
+    - name: zmk-behavior-runtime-sensor-rotate
+      revision: feat/custom-settings-storage
+    - name: zmk-module-settings-rpc
+    - name: zmk-feature-input-stream
+    - name: zmk-feature-module-physical-layout
+    - name: zmk-feature-custom-settings
+    - name: zmk-feature-runtime-combo
+    - name: zmk-feature-runtime-macro
+    - name: zmk-module-devtool
+    - name: zmk-feature-studio-rpc-perf
+    - name: zmk-feature-zephyr-setting-expose
+    - name: zmk-feature-device-info
+    - name: zmk-feature-kscan-diagnostics
+    - name: zmk-feature-watchdog
+    - name: zmk-feature-fast-keymap
+  self:
+    path: config
