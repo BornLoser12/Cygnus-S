@@ -34,15 +34,21 @@ jobs:
           make init-standalone
 
       - name: Build
-        run: make build-all
+        shell: bash
+        run: |
+          set -o pipefail
+          make build-all 2>&1 | tee build-all.log
 
       - name: Print build errors
         if: failure()
         shell: bash
         run: |
           errors="$(mktemp)"
+          if [ -f build-all.log ]; then
+            grep -H -n -Ei 'error|failed|fatal|undefined reference|devicetree|CMake Error|Kconfig|traceback|exception' build-all.log > "$errors" || true
+          fi
           find ./build -type f -name stdout_and_stderr.log \
-          -exec grep -H -n -Ei 'error|failed|fatal|undefined reference|devicetree|CMake Error|Kconfig' {} \; > "$errors" || true
+          -exec grep -H -n -Ei 'error|failed|fatal|undefined reference|devicetree|CMake Error|Kconfig|traceback|exception' {} \; >> "$errors" || true
           head -200 "$errors" | while IFS= read -r line; do
             echo "::error title=Build error excerpt::$line"
           done
@@ -60,7 +66,9 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: build-logs
-          path: build/**/stdout_and_stderr.log
+          path: |
+            build-all.log
+            build/**/stdout_and_stderr.log
 
       - name: Copy artifacts
         shell: sh -x {0}
