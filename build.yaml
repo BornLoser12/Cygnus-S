@@ -26,13 +26,13 @@ include:
  - artifact: Cygnus_L
    board: xiao_ble//zmk
    shield: Cygnus_L rgbled_adapter
- - artifact: Cygnus_R_reset
+ - artifact: Cygnus_R_SETTINGS_RESET_ONCE_NOT_DAILY
    board: xiao_ble//zmk
    shield: Cygnus_R rgbled_adapter
    snippets:
      - studio-rpc-usb-uart
    cmake-args: -DCONFIG_ZMK_SETTINGS_RESET_ON_START=y
- - artifact: Cygnus_L_reset
+ - artifact: Cygnus_L_SETTINGS_RESET_ONCE_NOT_DAILY
    board: xiao_ble//zmk
    shield: Cygnus_L rgbled_adapter
    cmake-args: -DCONFIG_ZMK_SETTINGS_RESET_ON_START=y
