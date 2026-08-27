@@ -27,17 +27,21 @@
 };
 
 &mouse_runtime_input_processor {
-    processor-label = "cursor";
+    processor-label = "mouse";
 
     /* Preserve the existing auto-mouse behavior while making it editable. */
+    scale-multiplier = <1>;
+    scale-divisor = <1>;
+    rotation-degrees = <0>;
+    active-layers = <0>;
     temp-layer-enabled;
     temp-layer = <4>;
     temp-layer-activation-delay-ms = <0>;
-    temp-layer-deactivation-delay-ms = <700>;
+    temp-layer-deactivation-delay-ms = <60000>;
 };
 
 &scroll_runtime_input_processor {
-    processor-label = "scroll";
+    processor-label = "wheel";
 
     /* Use the trackball's X/Y movement as scroll only on Layer 5. */
     active-layers = <32>;
@@ -89,7 +93,7 @@
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
         cpi = <1000>;
-        settings-id = "trackball";
+        settings-id = "right_trackball";
         disable-burst-read;
     };
 };

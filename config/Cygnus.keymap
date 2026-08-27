@@ -150,7 +150,7 @@
         amka: amka {
             compatible = "zmk,behavior-input-processor-temp-layer-keep-active";
             display-name = "Keep Auto-Mouse Layer";
-            processor-name = "cursor";
+            processor-name = "mouse";
             #binding-cells = <0>;
         };
 

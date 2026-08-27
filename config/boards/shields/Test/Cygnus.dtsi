@@ -118,7 +118,7 @@
         size = <150>;
         x = <1125>;
         y = <425>;
-        linked-device-identifiers = "cursor", "scroll";
+        linked-device-identifiers = "mouse", "wheel";
         linked-subsystems = "cormoran_rip", "cormoran_rip";
     };
 
