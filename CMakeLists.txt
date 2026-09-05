@@ -1,1 +1,2 @@
 target_sources_ifdef(CONFIG_CYGNUS_BEHAVIOR_QUEUE_COMPAT app PRIVATE src/behavior_queue_compat.c)
+target_sources_ifdef(CONFIG_CYGNUS_INPUT_PROCESSOR_GESTURE app PRIVATE src/input_processor_gesture.c)

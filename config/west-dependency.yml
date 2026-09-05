@@ -10,8 +10,6 @@ manifest:
       url-base: https://github.com/zmkfirmware
     - name: caksoylar
       url-base: https://github.com/caksoylar
-    - name: zettaface
-      url-base: https://github.com/zettaface
   projects:
     - name: zmk-west-commands
       import: true
@@ -56,9 +54,6 @@ manifest:
     - name: zmk-module-ble-management
     - name: zmk-module-battery-history
     - name: zmk-module-runtime-input-processor
-    - name: zmk-input-processor-keybind
-      remote: zettaface
-      revision: 64303bd3932bfa7f49261fc6d0c9a3fdd06f8271
     - name: zmk-behavior-runtime-sensor-rotate
       revision: feat/custom-settings-storage
     - name: zmk-module-settings-rpc

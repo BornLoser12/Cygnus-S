@@ -4,3 +4,11 @@ config CYGNUS_BEHAVIOR_QUEUE_COMPAT
     help
       Provides a weak zmk_behavior_queue_add() implementation for DYA runtime
       sensor rotate builds when the selected ZMK base does not export it.
+
+config CYGNUS_INPUT_PROCESSOR_GESTURE
+    bool "Cygnus gesture input processor"
+    default y
+    depends on ZMK_POINTING
+    depends on DT_HAS_CYGNUS_INPUT_PROCESSOR_GESTURE_ENABLED
+    help
+      Converts trackball movement on the gesture layer into simple key taps.

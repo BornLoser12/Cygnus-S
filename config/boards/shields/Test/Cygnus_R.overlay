@@ -52,20 +52,19 @@
         };
 
         gesture_win_arrow_input_processor: gesture_win_arrow_input_processor {
-            compatible = "zmk,input-processor-keybind";
+            compatible = "cygnus,input-processor-gesture";
             #input-processor-cells = <0>;
-            bindings = <&kp LG(RIGHT)>,
-                       <&kp LG(LEFT)>,
-                       <&kp LG(DOWN)>,
-                       <&kp LG(UP)>;
-            mode = <1>;
-            track_remainders;
+            bindings = <&kp LG(LEFT)>,
+                       <&kp LG(RIGHT)>,
+                       <&kp LG(UP)>,
+                       <&kp LG(DOWN)>;
+            track-remainders;
             threshold = <2>;
-            max_threshold = <200>;
-            tick = <60>;
-            wait-ms = <20>;
-            tap-ms = <20>;
-            max_pending_activations = <3>;
+            max-threshold = <200>;
+            tick = <80>;
+            wait-ms = <120>;
+            tap-ms = <35>;
+            max-pending-activations = <2>;
         };
     };
 };
