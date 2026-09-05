@@ -11,6 +11,8 @@
 #define MOUSE 4
 #define SCROLL 5
 #define NUM 6
+#define PRECISION 7
+#define GESTURE 8
 
 &mt {
     flavor = "balanced";
@@ -487,6 +489,7 @@
         };
 
         layer_6 {
+            display-name = "Utility";
             bindings = <
                 &trans
                 &trans
@@ -531,6 +534,108 @@
                 &trans
                 &trans
                 &bt BT_CLR_ALL
+            >;
+
+            sensor-bindings = <&ROTATE>;
+        };
+
+        precision_layer {
+            display-name = "Precision";
+            bindings = <
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+            >;
+
+            sensor-bindings = <&ROTATE>;
+        };
+
+        gesture_layer {
+            display-name = "Gesture";
+            bindings = <
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
+                &trans
             >;
 
             sensor-bindings = <&ROTATE>;
