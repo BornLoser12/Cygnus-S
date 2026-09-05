@@ -54,14 +54,15 @@
         gesture_win_arrow_input_processor: gesture_win_arrow_input_processor {
             compatible = "cygnus,input-processor-gesture";
             #input-processor-cells = <0>;
-            bindings = <&kp LG(LEFT)>,
-                       <&kp LG(RIGHT)>,
+            bindings = <&kp LG(RIGHT)>,
+                       <&kp LG(LEFT)>,
                        <&kp LG(UP)>,
                        <&kp LG(DOWN)>;
             track-remainders;
             threshold = <2>;
             max-threshold = <200>;
-            tick = <80>;
+            /* 133 counts is about 0.60x the previous 80-count sensitivity. */
+            tick = <133>;
             wait-ms = <120>;
             tap-ms = <35>;
             max-pending-activations = <2>;
