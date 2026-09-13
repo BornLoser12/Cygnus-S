@@ -26,6 +26,12 @@ include:
  - artifact: Cygnus_L
    board: xiao_ble//zmk
    shield: Cygnus_L rgbled_adapter
+ - artifact: Cygnus_R_PMW3610_USB_DEBUG
+   board: xiao_ble//zmk
+   shield: Cygnus_R rgbled_adapter
+   snippets:
+     - zmk-usb-logging
+   cmake-args: -DCONFIG_PMW3610_LOG_LEVEL_DBG=y
  - artifact: Cygnus_R_SETTINGS_RESET_ONCE_NOT_DAILY
    board: xiao_ble//zmk
    shield: Cygnus_R rgbled_adapter
