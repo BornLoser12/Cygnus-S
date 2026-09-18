@@ -1,6 +1,8 @@
 #include "Cygnus.dtsi"
 
 &kscan0 {
+        // Keep key presses available as wakeup sources during deep sleep.
+        wakeup-source;
         col-gpios
             = <&xiao_d 10 GPIO_ACTIVE_HIGH>
             , <&xiao_d 9 GPIO_ACTIVE_HIGH> 
