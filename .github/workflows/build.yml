@@ -8,14 +8,24 @@ on:
   workflow_dispatch:
 
 jobs:
+  test:
+    name: Gesture regression tests
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4, known-good build
+      - name: Test production gesture state machine
+        run: python3 tests/run_gesture_tests.py
+
   build:
+    needs: test
     runs-on: ubuntu-latest
     container:
-      image: zmkfirmware/zmk-build-arm:stable
+      # Exact image used by successful run 35343870812; no SDK upgrade.
+      image: zmkfirmware/zmk-build-arm@sha256:edb1c953438c6f720ddb79c3762f3972013b7fbbaf4fff3592fc869983e7afc5
     name: Build
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
 
       - name: Init
         run: |
@@ -23,11 +33,20 @@ jobs:
           rm -rf .west dependencies
           make init-standalone
 
+      - name: Verify and record dependency versions
+        run: |
+          west manifest --resolve -o resolved-manifest.yml
+          python3 scripts/verify_manifest.py resolved-manifest.yml
+          west manifest --freeze -o frozen-manifest.yml
+
       - name: Build
         shell: bash
         run: |
           set -o pipefail
           make build-all 2>&1 | tee build-all.log
+
+      - name: Verify generated firmware settings
+        run: python3 scripts/verify_build.py
 
       - name: Print build errors
         if: failure()
@@ -64,14 +83,21 @@ jobs:
           cat "$errors"
           cat "$tail_log"
 
-      - name: Archive build logs
-        if: failure()
-        uses: actions/upload-artifact@v4
+      - name: Archive reproducibility and diagnostic data
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
-          name: build-logs
+          name: build-diagnostics
+          include-hidden-files: true
           path: |
+            resolved-manifest.yml
+            frozen-manifest.yml
             build-all.log
             build/**/stdout_and_stderr.log
+            build/**/zephyr/.config
+            build/**/zephyr/zephyr.dts
+            build/**/zephyr/zmk.elf
+            build/**/zephyr/zephyr.map
 
       - name: Copy artifacts
         shell: sh -x {0}
@@ -85,7 +111,7 @@ jobs:
             done
 
       - name: Archive artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: firmware
           path: artifacts

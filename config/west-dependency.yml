@@ -1,8 +1,10 @@
+# Pinned to the successful firmware build at 48f95d8:
+# https://github.com/BornLoser12/Cygnus-S/actions/runs/35343870812
+# Update deliberately, then verify the resolved transitive manifest in CI.
 manifest:
   version: 1.2
   defaults:
     remote: cormoran
-    revision: main
   remotes:
     - name: cormoran
       url-base: https://github.com/cormoran
@@ -12,14 +14,15 @@ manifest:
       url-base: https://github.com/caksoylar
   projects:
     - name: zmk-west-commands
+      revision: 536260056f362edb2092905f2a75317bc8cb9bc2
       import: true
     - name: zmk
-      revision: main+dya
+      revision: e5c9b6915b56801193e359dd9bad4a167ce0d1b8
       clone-depth: 1
       import:
         file: app/west.yml
     - name: zephyr
-      revision: v4.1.0+zmk-fixes+nrf-half-duplex-uart
+      revision: 7c6b4cc486ecb41a68d9c2b1def2bb3178fbb826
       clone-depth: 1
       import:
         name-blocklist:
@@ -43,31 +46,51 @@ manifest:
           - trusted-firmware-m
     - name: zmk-rgbled-widget
       remote: caksoylar
-      revision: main
+      revision: e6b467792a1dabef8cfa5c9fd26bfefc9c16662b
     - name: zmk-driver-pmw3610-with-custom-studio-rpc
+      revision: 5c34ea0eec246a1c986111417cd779b53144629a
     - name: zmk-feature-os-detection
+      revision: 3052679f645b8fc1997275c2eaa6b86bdd55ca01
     - name: zmk-feature-default-layer
-      revision: codex/custom-rpc-rewrite
+      revision: b25cb5b324da2d9bbc84e1877c775f5b2b7c6845
       import: true
     - name: zmk-driver-animation
+      revision: fa0479ec3b2fe04a96d9244e620d3c5dd2cfb280
     - name: zmk-driver-ext-power-transient
+      revision: 92b00e3acb438df77c374a2f79857a8406c41bed
     - name: zmk-module-ble-management
+      revision: 57738cc4fc6ba80e82a7ac57741a0339cb186cd4
     - name: zmk-module-battery-history
+      revision: 307755dd2ad4d320e14de162e8e5ef018f29d929
     - name: zmk-module-runtime-input-processor
+      revision: 43618985f8c9d5457cc333b7ca0733f2d361911e
     - name: zmk-behavior-runtime-sensor-rotate
-      revision: feat/custom-settings-storage
+      revision: 21236081f8e7d1a5699248d17ff6ffd8ec1d2c20
     - name: zmk-module-settings-rpc
+      revision: 78f86df9e6c5edaf57bef3ccbd7f360cfdf49291
     - name: zmk-feature-input-stream
+      revision: aeb015908a42a7615ccdccc7feb3a10d23132a71
     - name: zmk-feature-module-physical-layout
+      revision: 4f18de45dc27820725d267916b4cdacc0e0b6cf9
     - name: zmk-feature-custom-settings
+      revision: c6a7fef3a3be3d3ace5de9a4b0628c6418cd1f3f
     - name: zmk-feature-runtime-combo
+      revision: d9490e7b5d41c516221d131241009e81740efcee
     - name: zmk-feature-runtime-macro
+      revision: 38530962eb7061b60efcb98e84585cfb1f0cb6de
     - name: zmk-module-devtool
+      revision: 9938a2c73c06d6e65ba2c0b68c9aa044a467eafc
     - name: zmk-feature-studio-rpc-perf
+      revision: b6ccb08cdc46e9e6341b0c42b97f78f05df0939e
     - name: zmk-feature-zephyr-setting-expose
+      revision: 5c89bc71122840ea46032fc241bef8665b99728a
     - name: zmk-feature-device-info
+      revision: 8cedd2dd9f04e19ea5a17b94914dd47a09d8db11
     - name: zmk-feature-kscan-diagnostics
+      revision: 1432f7fe0cfe903cd7d3c9931ae6bd6f2e1f328e
     - name: zmk-feature-watchdog
+      revision: 84ad14c6c3645dc40b23f45d08ab45418655f912
     - name: zmk-feature-fast-keymap
+      revision: 8dac76de0ba38588ba39ca498910e24f8332bc6b
   self:
     path: config

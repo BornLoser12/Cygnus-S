@@ -84,6 +84,8 @@
     
     kscan0: kscan {
         compatible = "zmk,kscan-gpio-matrix";
+        // Both halves must remain wakeable by their keys during deep sleep.
+        wakeup-source;
         label = "KSCAN";
         diode-direction = "col2row";
             row-gpios

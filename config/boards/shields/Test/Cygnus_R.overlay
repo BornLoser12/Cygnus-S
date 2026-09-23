@@ -54,6 +54,7 @@
         gesture_win_arrow_input_processor: gesture_win_arrow_input_processor {
             compatible = "cygnus,input-processor-gesture";
             #input-processor-cells = <0>;
+            gesture-layer = <8>;
             bindings = <&kp LG(RIGHT)>,
                        <&kp LG(LEFT)>,
                        <&kp LG(UP)>,

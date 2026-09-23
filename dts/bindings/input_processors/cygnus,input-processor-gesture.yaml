@@ -14,6 +14,11 @@ properties:
     required: true
     description: "Bindings for right, left, down, and up gestures, in that order."
 
+  gesture-layer:
+    type: int
+    required: true
+    description: "Layer used by the listener override; transitions discard pending movement."
+
   tick:
     type: int
     description: "Accumulated movement needed to trigger one gesture."
