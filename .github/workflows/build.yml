@@ -37,7 +37,8 @@ jobs:
         run: |
           west manifest --resolve -o resolved-manifest.yml
           python3 scripts/verify_manifest.py resolved-manifest.yml
-          west manifest --freeze -o frozen-manifest.yml
+          # Inactive simulation groups are intentionally not cloned by west update.
+          west manifest --freeze --active-only -o frozen-manifest.yml
 
       - name: Build
         shell: bash

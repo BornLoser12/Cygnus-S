@@ -22,7 +22,8 @@ The 26 direct dependency SHAs were checked against that run's update log. Import
 manifests are immutable because their parent commits are pinned; CI also rejects
 any resolved dependency that still refers to a branch or tag.
 
-Every build archives `build-diagnostics`: the resolved/frozen dependency manifests,
+Every build archives `build-diagnostics`: the fully resolved manifest and the
+frozen manifest of active (actually checked-out) dependencies,
 full build log, each target's final `.config`, device tree, ELF and link map. The
 ordinary `firmware` artifact still contains the existing UF2 filenames.
 
